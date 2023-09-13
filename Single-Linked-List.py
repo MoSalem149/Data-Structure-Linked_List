@@ -1,5 +1,6 @@
+# Define a Node class for individual elements of the linked list
 class Node:
-    def _init_(self, data):
+    def __init__(self, data):
         self.data = data
         self.next = None
 
@@ -16,19 +17,22 @@ class Node:
         self.next = new_next
 
 
+# Define a LinkedList class to manage the linked list
 class LinkedList:
-    def _init_(self):
-        self.head = None
+    def __init__(self):
+        self.head = None  # Initialize the head (start) of the linked list
 
     def is_empty(self):
         return self.head is None
 
     def add_at_beginning(self, item):
+        # Add a new node at the beginning of the linked list
         temp = Node(item)
         temp.set_next(self.head)
         self.head = temp
 
     def size(self):
+        # Get the size (number of nodes) of the linked list
         current = self.head
         count = 0
         while current is not None:
@@ -37,6 +41,7 @@ class LinkedList:
         return count
 
     def search(self, item):
+        # Search for an item in the linked list
         current = self.head
         found = False
         while current is not None and not found:
@@ -47,6 +52,7 @@ class LinkedList:
         return found
 
     def remove(self, item):
+        # Remove a node with a specific data value from the linked list
         current = self.head
         previous = None
         found = False
@@ -62,6 +68,7 @@ class LinkedList:
             previous.set_next(current.get_next())
 
     def add_at_end(self, item):
+        # Add a new node at the end of the linked list
         new_node = Node(item)
         current = self.head
         while current.get_next() is not None:
@@ -69,6 +76,7 @@ class LinkedList:
         current.set_next(new_node)
 
     def add_at_position(self, item, pos):
+        # Add a new node at a specified position in the linked list
         if pos > self.size() or pos < 0:
             return  # Invalid position
         else:
@@ -88,6 +96,7 @@ class LinkedList:
                 new_node.set_next(current)
 
     def print_list(self):
+        # Print the elements of the linked list
         current = self.head
         print("List Data:")
         while current is not None:
@@ -96,6 +105,7 @@ class LinkedList:
         print()  # Print a newline at the end
 
     def clear(self):
+        # Clear the linked list by resetting the head
         self.head = None
 
 
